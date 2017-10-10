@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'User can login through Github' do
+RSpec.feature 'User can login through Github and logout' do
   scenario 'and see their username' do
     stub_omniauth
 
