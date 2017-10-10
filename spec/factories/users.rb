@@ -5,6 +5,5 @@ FactoryGirl.define do
     username "MyString"
     profile_picture "MyString"
     oauth_token "MyString"
-    oauth_token_secret "MyString"
   end
 end

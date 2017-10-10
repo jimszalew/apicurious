@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
     user.name               = auth["info"]["name"]
     user.username           = auth["info"]["nickname"]
-    user.profile_picture    = auth["extra"]["raw_info"]["avatar_url"]
     user.oauth_token        = auth["credentials"]["token"]
     user.save
     user
