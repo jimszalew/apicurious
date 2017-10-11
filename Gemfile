@@ -23,6 +23,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'database_cleaner'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +32,9 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'awesome_print'
 end
 
 group :development do

@@ -8,6 +8,13 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rails'
+require 'webmock/rspec'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -32,13 +39,13 @@ def stub_omniauth
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
     "provider" => "github",
     "uid" => "15232421",
-    "credentials" => { "token" => "GITHUB_ACCESS_TOKEN" },
+    "credentials" => { "token" => ENV['GITHUB_ACCESS_TOKEN'] },
     "info" => {
       "nickname" => "jimszalew",
       "email"    => "jim.szalewski@gmail.com",
       "name"     => "Jim Szalewski",
       "urls" => {
-        "Github" => "www.fake-github.com"
+        "Github" => "www.github.com"
       },
     }
   })

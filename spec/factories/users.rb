@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    uid "MyString"
-    username "MyString"
-    oauth_token "MyString"
+    uid "15232421"
+    username "jimszalew"
+    oauth_token ENV['GITHUB_ACCESS_TOKEN']
   end
 end
