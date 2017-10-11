@@ -22,7 +22,7 @@
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <ul class="nav navbar-nav">
          <% if current_user %>
-           <li class="nav navbar-nav">Hello <%= current_user.name  %></li>
+           <li class="nav navbar-nav">Hello <%= current_user.username  %></li>
            <li class="nav navbar-nav"><%= link_to "Logout", logout_path %></li>
          <% else %>
           <li class="nav navbar-nav"><%= link_to "Login with Github", github_login_path %></li>

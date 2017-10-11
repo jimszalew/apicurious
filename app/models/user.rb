@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  def self.find_or_create_by_auth(auth)
-    user = User.find_or_create_by(uid: auth['id'])
+  validates_presence_of :uid, :username, :oauth_token
 
-    user.name               = auth["info"]["name"]
-    user.username           = auth["info"]["nickname"]
-    user.oauth_token        = auth["credentials"]["token"]
+  def self.find_or_create_by_auth(auth)
+    user = User.find_or_create_by(uid: auth["uid"])
+
+    user.username    = auth["info"]["nickname"]
+    user.oauth_token = auth["credentials"]["token"]
     user.save
     user
   end
