@@ -1,0 +1,12 @@
+<h1>Repositories</h1>
+
+<div class="repo_list">
+  <% @repos.map do |repo| %>
+    <ul class="repository">
+      <li class="name"><%= repo.name %></li>
+      <li class="description"><%= repo.description %></li>
+      <li class="language"><%= repo.language %></li>
+      <li class="updated"><%= repo.updated %></li>
+    </ul>
+  <% end %>
+</div>

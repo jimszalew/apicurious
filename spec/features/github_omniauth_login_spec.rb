@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'User can login through Github and logout' do
-  scenario 'and see their username' do
+RSpec.feature 'User logs in through Github and can logout' do
+  scenario 'and sees their basic info and links' do
     VCR.use_cassette('features/login') do
       stub_omniauth
 
@@ -17,6 +17,7 @@ RSpec.feature 'User can login through Github and logout' do
       expect(page).to have_css(".starred_repos")
       expect(page).to have_css(".followers")
       expect(page).to have_css(".following")
+      expect(page).to have_link("Repositories")
 
       click_link "Logout"
 
