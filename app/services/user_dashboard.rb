@@ -1,9 +1,11 @@
 class UserDashboard
+  attr_reader :profile_pic,
+              :followers,
+              :following
+
   def initialize(user)
     @profile_pic = user[:avatar_url]
-  end
-
-  def profile_pic
-    @profile_pic
+    @followers   = user[:followers]
+    @following   = user[:following]
   end
 end
