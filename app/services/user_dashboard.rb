@@ -1,11 +1,25 @@
 class UserDashboard
-  attr_reader :profile_pic,
-              :followers,
-              :following
 
   def initialize(user)
-    @profile_pic = user[:avatar_url]
-    @followers   = user[:followers]
-    @following   = user[:following]
+    @user = user
   end
+
+  def profile_pic
+    dashboard[:avatar_url]
+  end
+
+  def followers
+    dashboard[:followers]
+  end
+
+  def following
+    dashboard[:following]
+  end
+
+  def dashboard
+    GithubService.new.dashboard(user)
+  end
+
+  private
+      attr_reader :user
 end
