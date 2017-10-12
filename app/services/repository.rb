@@ -10,4 +10,7 @@ class Repository
     @language    = repo[:language]
     @updated     = repo[:updated_at]
   end
+
+  private
+      attr_reader :user
 end

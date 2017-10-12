@@ -20,6 +20,12 @@ class UserDashboard
     GithubService.new.dashboard(user)
   end
 
+  def repos
+    GithubService.new.repos(user).map do |repo|
+      Repository.new(repo)
+    end
+  end
+
   private
       attr_reader :user
 end
