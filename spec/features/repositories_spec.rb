@@ -6,7 +6,8 @@ RSpec.feature 'Logged in user visits their repositories page' do
       stub_omniauth
       visit dashboard_index_path
 
-      click_link "Repositories"
+      # click_link "Repositories"
+      page.find(".repository").click
 
       expect(current_path).to eq(repositories_path)
       expect(page).to have_css('.repository', count: 46)

@@ -13,3 +13,40 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+h3 {
+  font-size: 20px;
+  font-family: fantasy;
+}
+
+.pr-3 {
+  padding-left: 16px !important;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.pl-2 {
+  float: left !important;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.profile_pic {
+  border-radius: 300px;
+}
+
+.repository {
+  border-bottom: 3px, green;
+}

@@ -10,26 +10,34 @@
 
   <body>
     <nav class="navbar navbar-default" role="navigation">
-     <div class="navbar-header">
-       <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
        <%= link_to "APIcurious", root_path, class: "navbar-brand" %>
-     </div>
-     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav">
-        <% if current_user %>
-          <li class="nav navbar-nav">Hello <%= current_user.username  %></li>
-          <li class="nav navbar-nav"><%= link_to "Logout", logout_path %></li>
-        <% else %>
-          <li class="nav navbar-nav"><%= link_to "Login with Github", github_login_path %></li>
-        <% end %>
-       </ul>
-     </div>
-   </nav>
-    <%= yield %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <% if current_user %>
+            <li class="nav navbar-nav">Hello <%= current_user.username  %></li>
+            <li class="nav navbar-nav starred_repos"><%= link_to "Starred" %></li>
+            <li class="nav navbar-nav repository"><%= link_to "Repositories", repositories_path %></li>
+            <li class="nav navbar-nav followers"><%= link_to "Followers" %></li>
+            <li class="nav navbar-nav following"><%= link_to "Following" %></li>
+            <li class="nav navbar-nav"><%= link_to "Logout", logout_path %></li>
+          <% else %>
+            <li class="nav navbar-nav"><%= link_to "Login with Github", github_login_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <% if dashboard && current_user %>
+      <%= render partial: "layouts/left_vert" %>
+    <% end %>
+   <%= yield %>
   </body>
 </html>
