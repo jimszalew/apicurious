@@ -24,6 +24,7 @@ gem 'figaro'
 gem 'database_cleaner'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'loofah'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'vcr'
   gem 'webmock'
   gem 'awesome_print'
+  gem 'simplecov'
 end
 
 group :development do
